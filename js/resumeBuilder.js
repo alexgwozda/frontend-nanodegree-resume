@@ -16,12 +16,11 @@ work1.dates = "August 2014 - Present";
 work1.location = "Castro Valley, CA";
 work1.description = "Providing massage therapy to relieve stress and pain, as well as to treat injuries and chronic conditions.";
 
-var school1 = {
-  "name" : "Everest College, Seattle",
-  "degree" : "Massage Therapy",
-  "dates" : "July 2009 - March 2011",
-  "location" : "Seattle, WA",
-};
+var school1 = {};
+school1["name"] = "Everest College, Seattle";
+school1["degree"] = "Massage Therapy";
+school1["dates"] = "July 2009 - March 2011";
+school1["location"] = "Seattle, WA";
 
 // f stands for formatted
 // Construct the full skills HTML called below.
