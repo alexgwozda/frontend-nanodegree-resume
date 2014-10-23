@@ -17,14 +17,14 @@ var work = {
   "jobs" : [
     {
       "employer" : "Massage Envy",
-      "title" : "massage therapist",
+      "title" : "Massage Therapist",
       "dates" : "August 2014 - Present",
       "location" : "Castro Valley, CA",
       "description" : "Providing massage therapy to relieve stress and pain, as well as problem-solving to treat injuries and chronic conditions."
     },
     {
       "employer" : "Elements Massage",
-      "title" : "massage therapist",
+      "title" : "Massage Therapist",
       "dates" : "April 2012 - June 2014",
       "location" : "Seattle, WA",
       "description" : "Providing massage therapy to relieve stress and pain, as well as problem-solving to treat injuries and chronic conditions."
@@ -84,20 +84,28 @@ var projects = {
 }
 
 
-
-
-/*
 // f stands for formatted
-// Construct the full skills HTML called below.
-function listSkills(skills) {
-  var formattedList = [];
-  for (var i = 0; i < skills.length; i++) {
-    formattedList[i] = HTMLskills.replace("%data%", skills[i]);
+
+if (bio.skills.length !== 0) {
+  $("#header").append(HTMLskillsStart);
+  var fSkills = [];
+  for (var i = 0; i < bio.skills.length; i++) {
+    fSkills[i] = HTMLskills.replace("%data%", bio.skills[i]);
   }
-  return formattedList;
+  $("#skills").append(fSkills);
 }
 
 
+for (job in work.jobs) {
+  $("#workExperience").append(HTMLworkStart);
+  var fWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+  var fWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+  $(".work-entry:last").append(fWorkEmployer + fWorkTitle);
+}
+
+
+
+/*
 var fName = HTMLheaderName.replace("%data%", bio.name);
 var fRole = HTMLheaderRole.replace("%data%", bio.role);
 var fMobile = HTMLmobile.replace("%data%", bio.mobile);
@@ -105,8 +113,6 @@ var fEmail = HTMLemail.replace("%data%", bio.email);
 var fGithub = HTMLgithub.replace("%data%", bio.github);
 var fBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
 var fWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg);
-listSkills(bio.skills);
-var fSkills = listSkills(bio.skills);
 
 var fWork1Start = HTMLworkStart.replace("\'>", "\' id='work1'>");
 var fWork1Employer = HTMLworkEmployer.replace("%data%", work1.employer);
