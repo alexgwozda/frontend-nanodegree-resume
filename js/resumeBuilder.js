@@ -2,14 +2,12 @@ var bio = {
   "name" : "Alex Gwozda",
   "role" : "Web Developer",
   "welcomeMsg" : "Welcome to my interactive resume!",
-  "contacts" : [ 
-    {
+  "bioPic" : "images/photo1.png",
+  "contact" :  {
       "mobile" : "415-429-2525",
       "email" : "gwozda@gmail.com",
       "github" : "https://github.com/alexgwozda",
-      "bioPic" : "images/photo1.png",
-    } 
-  ],
+    },
   "skills" : ["HTML", "CSS", "Javascript"]
 }
 
@@ -84,7 +82,7 @@ var projects = {
 }
 
 
-// f stands for formatted
+// variable starting with "f" stands for formatted
 
 if (bio.skills.length !== 0) {
   $("#header").append(HTMLskillsStart);
@@ -95,31 +93,39 @@ if (bio.skills.length !== 0) {
   $("#skills").append(fSkills);
 }
 
-
-for (job in work.jobs) {
-  $("#workExperience").append(HTMLworkStart);
-  var fWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-  var fWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-  $(".work-entry:last").append(fWorkEmployer + fWorkTitle);
+function displayWork() {
+  for (job in work.jobs) {
+    $("#workExperience").append(HTMLworkStart);
+    var fWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+    var fWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+    var fWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+    var fWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+    var fWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+    $(".work-entry:last").append(fWorkEmployer + fWorkTitle + fWorkDates + fWorkLocation + fWorkDescription);
+  }
 }
 
+displayWork();
 
 
-/*
 var fName = HTMLheaderName.replace("%data%", bio.name);
 var fRole = HTMLheaderRole.replace("%data%", bio.role);
-var fMobile = HTMLmobile.replace("%data%", bio.mobile);
-var fEmail = HTMLemail.replace("%data%", bio.email);
-var fGithub = HTMLgithub.replace("%data%", bio.github);
+var fMobile = HTMLmobile.replace("%data%", bio.contact.mobile);
+var fEmail = HTMLemail.replace("%data%", bio.contact.email);
+var fGithub = HTMLgithub.replace("%data%", bio.contact.github);
 var fBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
 var fWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMsg);
 
-var fWork1Start = HTMLworkStart.replace("\'>", "\' id='work1'>");
-var fWork1Employer = HTMLworkEmployer.replace("%data%", work1.employer);
-var fWork1Title = HTMLworkTitle.replace("%data%", work1.title);
-var fWork1Dates = HTMLworkDates.replace("%data%", work1.dates);
-var fWork1Location = HTMLworkLocation.replace("%data%", work1.location);
-var fWork1Description = HTMLworkDescription.replace("%data%", work1.description);
+$("#header").prepend(fWelcomeMsg);
+$("#header").prepend(fRole);
+$("#header").prepend(fName);
+$("#header").prepend(fBioPic);
+
+$("#topContacts").append(fMobile);
+$("#topContacts").append(fEmail);
+$("#topContacts").append(fGithub);
+
+/*
 
 var fSchool1Start = HTMLschoolStart.replace("\'>", "\' id='school1'>");
 var fSchool1Name =  HTMLschoolName.replace("%data%", school1.name);
@@ -137,20 +143,9 @@ $("#topContacts").append(fMobile);
 $("#topContacts").append(fEmail);
 $("#topContacts").append(fGithub);
 
-$("#skillsChart").append(HTMLskillsStart);
-$("#skills").append(fSkills);
-
-$("#workExperience").append(fWork1Start);
-$("#work1").append(fWork1Employer);
-$("#work1").append(fWork1Title);
-$("#work1").append(fWork1Dates);
-$("#work1").append(fWork1Location);
-$("#work1").append(fWork1Description);
-
 $("#education").append(fSchool1Start);
 $("#school1").append(fSchool1Name);
 $("#school1").append(fSchool1Degree);
 $("#school1").append(fSchool1Dates);
 $("#school1").append(fSchool1Location);
-
 */
