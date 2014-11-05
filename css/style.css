@@ -6,14 +6,15 @@
 
 
 
-.education-entry, .work-entry, .project-entry {
+.education-entry, 
+.work-entry, 
+.project-entry {
   padding-left: 5%;
   padding-right: 5%;
 }
 
 
 h1 {
-
   font-size: 40px;
   color: #F5A623;
   line-height: 48px;
@@ -26,6 +27,10 @@ h2 {
   color: #999999;
   line-height: 29px;
   padding: 10px;
+}
+
+#header-role {
+  display: inline;
 }
 
 h3 {
@@ -88,6 +93,7 @@ a {
 
 #skillsH3 {
   color: #F5AE23;
+  padding-bottom: 0;
   display: none;
 }
 
@@ -132,6 +138,11 @@ a {
   padding: 10px;
 }
 
+.flex-item {
+  display: inline-block;
+  margin: 5px 20px;
+}
+
 .center-content {
   padding: 5%;
 }
@@ -144,7 +155,7 @@ ul {
 .biopic {
   float: left;
   padding: 10px;
-  width: 200px;
+  width: 220px;
   display: none;
 }
 
@@ -181,7 +192,7 @@ span {
 
 @media only screen and (max-width:900px) {
   .biopic {
-    width: 175px;
+    width: 140px;
   }
 }
 
@@ -190,7 +201,7 @@ span {
     margin-top: 10%;
   }
   .biopic {
-    width: 150px;
+    width: 120px;
   }
   .welcome-message {
     display: none;
@@ -212,8 +223,11 @@ span {
 
 @media only screen and (min-width: 750px) {
   #skillsH3,
-  #skills,
   .biopic {
     display: block;
+  }
+
+  #skills {
+    display: flex;
   }
 }
